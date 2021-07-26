@@ -14,6 +14,7 @@
     self = [self initWithRed:0 green:0 blue:0];
     return self;
 }
+
 -(instancetype)initWithHex:(NSString *)hex {
     self = [super init];
     if (self) {
@@ -156,6 +157,13 @@
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+}
+
++(CAGradientLayer *) gradient: (UIColor*)primaryColor secondaryColor:(UIColor*)secondaryColor view:(UIView*)view {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = @[(id)[UIColor blueColor].CGColor, (id)[UIColor redColor].CGColor];
+    return gradient;
 }
 
 @end

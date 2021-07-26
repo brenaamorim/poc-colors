@@ -20,12 +20,13 @@
 @property (nonatomic) NSInteger green;
 @property (nonatomic) NSInteger blue;
 
--(UIColor *)randomColor;
--(UIColor *)color;
--(UIColor *)darker;
--(UIColor *)lighter;
--(UIColor *)darkerHigh;
--(UIColor *)lighterHigh;
+-(UIColor *) randomColor;
+-(UIColor *) color;
+-(UIColor *) darker;
+-(UIColor *) lighter;
+-(UIColor *) darkerHigh;
+-(UIColor *) lighterHigh;
++(CAGradientLayer *) gradient: (UIColor*)primaryColor secondaryColor:(UIColor*)secondaryColor view:(UIView*)view;
 @end
 
 

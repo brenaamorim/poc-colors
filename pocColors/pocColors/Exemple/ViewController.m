@@ -19,6 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIView *view = [[UIView alloc] initWithFrame: CGRectMake(10, 200, 200, 40)];
+    Color *color1 = [[Color alloc] initWithHex:@"#BF43BF"];
+    Color *color2 = [[Color alloc] initWithHex:@"#0061BF"];
+    CAGradientLayer *gradient;
+    gradient = [Color gradient: color1 secondaryColor: color2 view: view];
+    [view.layer insertSublayer:gradient  atIndex:0];
+    [self.view addSubview: view];
+
     Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
 
     self.testButton = [UIButton buttonWithType:UIButtonTypeCustom];

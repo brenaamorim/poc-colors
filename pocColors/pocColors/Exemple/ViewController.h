@@ -11,6 +11,7 @@
 
 @property(strong, nonatomic) UIButton *testButton;
 @property(strong, nonatomic) UIButton *originalButton;
+@property(strong, nonatomic) UIView *view;
 
 -(void)changeColor;
 
