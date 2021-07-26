@@ -11,7 +11,7 @@
 
 - (instancetype)init {
     self = [self initWithHex:@""];
-    self = [self initWithRGB:0 green:0 blue:0];
+    self = [self initWithRed:0 green:0 blue:0];
     return self;
 }
 -(instancetype)initWithHex:(NSString *)hex {
@@ -20,26 +20,21 @@
         _hex = hex;
         
         NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
-        NSAssert([colorString length] == 6, @"Color value is invalid. It should be a hex value of the form #RRGGBB");
-
-        NSLog(@"Color hex was initialized!!");
-        
+        NSAssert([colorString length] == 6, @"[DragonFly] Color value is invalid. It should be a hex value of the form #RRGGBB");
     }
     return self;
 }
 
--(instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue {
+-(instancetype)initWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue {
     self = [super init];
     if (self) {
         _red = red;
         _green = green;
         _blue = blue;
         
-        NSAssert(red >= 0 && red <= 255, @"Invalid red component");
-        NSAssert(green >= 0 && green <= 255, @"Invalid green component");
-        NSAssert(blue >= 0 && blue <= 255, @"Invalid blue component");
-
-        NSLog(@"Color rgb was initialized!!");
+        NSAssert(red >= 0 && red <= 255, @"[DragonFly] Invalid red component");
+        NSAssert(green >= 0 && green <= 255, @"[DragonFly] Invalid green component");
+        NSAssert(blue >= 0 && blue <= 255, @"[DragonFly] Invalid blue component");
     }
     return self;
 }
@@ -89,13 +84,15 @@
     CGFloat alpha, red, blue, green;
     
     // Verify if hex format is #RRGGBB
+    alpha = 1.0f;
     if (([colorString length]) == 6) {
-        alpha = 1.0f;
         red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.9;
         green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.9;
         blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.9;
     } else {
-        [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RRGGBB", _hex];
+        red = (_red / 255.0) * 0.9;
+        green = (_green / 255.0) * 0.9;
+        blue = (_blue / 255.0) * 0.9;
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
@@ -107,13 +104,15 @@
     CGFloat alpha, red, blue, green;
     
     // Verify if hex format is #RRGGBB
+    alpha = 1.0f;
     if (([colorString length]) == 6) {
-        alpha = 1.0f;
         red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.75;
         green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.75;
         blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.75;
     } else {
-        [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RRGGBB", _hex];
+        red = (_red / 255.0) * 0.75;
+        green = (_green / 255.0) * 0.75;
+        blue = (_blue / 255.0) * 0.75;
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
@@ -125,13 +124,15 @@
     CGFloat alpha, red, blue, green;
     
     // Verify if hex format is #RRGGBB
+    alpha = 0.9f;
     if (([colorString length]) == 6) {
-        alpha = 0.9f;
         red   = [self colorComponentFrom: colorString start: 0 length: 2];
         green = [self colorComponentFrom: colorString start: 2 length: 2];
         blue  = [self colorComponentFrom: colorString start: 4 length: 2];
     } else {
-        [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RRGGBB", _hex];
+        red = _red / 255.0;
+        green = _green / 255.0;
+        blue = _blue / 255.0;
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
@@ -143,13 +144,15 @@
     CGFloat alpha, red, blue, green;
     
     // Verify if hex format is #RRGGBB
+    alpha = 0.75f;
     if (([colorString length]) == 6) {
-        alpha = 0.75f;
         red   = [self colorComponentFrom: colorString start: 0 length: 2];
         green = [self colorComponentFrom: colorString start: 2 length: 2];
         blue  = [self colorComponentFrom: colorString start: 4 length: 2];
     } else {
-        [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RRGGBB", _hex];
+        red = _red / 255.0;
+        green = _green / 255.0;
+        blue = _blue / 255.0;
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];

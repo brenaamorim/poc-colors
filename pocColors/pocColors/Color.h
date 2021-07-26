@@ -11,7 +11,7 @@
 @interface Color : UIColor
 
 -(instancetype) initWithHex:(NSString *)hex;
--(instancetype) initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+-(instancetype) initWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
 
 //+(id)initRGB:(NSString *)rgb;
 

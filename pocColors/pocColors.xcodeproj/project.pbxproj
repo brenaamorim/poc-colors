@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E63813BF26AAF6E700E79ADB /* FISPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E63813BE26AAF6E700E79ADB /* FISPerson.m */; };
 		E6FBD0D326A99C6D005361BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D226A99C6D005361BD /* AppDelegate.m */; };
 		E6FBD0D626A99C6D005361BD /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D526A99C6D005361BD /* SceneDelegate.m */; };
 		E6FBD0D926A99C6D005361BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D826A99C6D005361BD /* ViewController.m */; };
@@ -19,8 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E63813BE26AAF6E700E79ADB /* FISPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FISPerson.m; sourceTree = "<group>"; };
-		E63813C026AAF6FE00E79ADB /* FISPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FISPerson.h; sourceTree = "<group>"; };
 		E6FBD0CE26A99C6D005361BD /* pocColors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocColors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBD0D126A99C6D005361BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E6FBD0D226A99C6D005361BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +45,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7747C25F26AED4F500802D49 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBD0D126A99C6D005361BD /* AppDelegate.h */,
+				E6FBD0D226A99C6D005361BD /* AppDelegate.m */,
+				E6FBD0D426A99C6D005361BD /* SceneDelegate.h */,
+				E6FBD0D526A99C6D005361BD /* SceneDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7747C26026AED51400802D49 /* Exemple */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBD0DF26A99C71005361BD /* LaunchScreen.storyboard */,
+				E6FBD0DD26A99C71005361BD /* Assets.xcassets */,
+				E6FBD0DA26A99C6D005361BD /* Main.storyboard */,
+				E6FBD0D726A99C6D005361BD /* ViewController.h */,
+				E6FBD0D826A99C6D005361BD /* ViewController.m */,
+			);
+			path = Exemple;
+			sourceTree = "<group>";
+		};
 		E6FBD0C526A99C6D005361BD = {
 			isa = PBXGroup;
 			children = (
@@ -67,21 +87,12 @@
 		E6FBD0D026A99C6D005361BD /* pocColors */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBD0D126A99C6D005361BD /* AppDelegate.h */,
-				E6FBD0D226A99C6D005361BD /* AppDelegate.m */,
-				E6FBD0D426A99C6D005361BD /* SceneDelegate.h */,
-				E6FBD0D526A99C6D005361BD /* SceneDelegate.m */,
-				E6FBD0D726A99C6D005361BD /* ViewController.h */,
-				E6FBD0D826A99C6D005361BD /* ViewController.m */,
-				E6FBD0DA26A99C6D005361BD /* Main.storyboard */,
-				E6FBD0DD26A99C71005361BD /* Assets.xcassets */,
-				E6FBD0DF26A99C71005361BD /* LaunchScreen.storyboard */,
-				E6FBD0E226A99C71005361BD /* Info.plist */,
+				7747C25F26AED4F500802D49 /* App */,
+				7747C26026AED51400802D49 /* Exemple */,
 				E6FBD0E326A99C71005361BD /* main.m */,
 				E6FBD0EA26A99DC1005361BD /* Color.h */,
 				E6FBD0EB26A99DC1005361BD /* Color.m */,
-				E63813C026AAF6FE00E79ADB /* FISPerson.h */,
-				E63813BE26AAF6E700E79ADB /* FISPerson.m */,
+				E6FBD0E226A99C71005361BD /* Info.plist */,
 			);
 			path = pocColors;
 			sourceTree = "<group>";
@@ -157,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBD0D926A99C6D005361BD /* ViewController.m in Sources */,
-				E63813BF26AAF6E700E79ADB /* FISPerson.m in Sources */,
 				E6FBD0D326A99C6D005361BD /* AppDelegate.m in Sources */,
 				E6FBD0EC26A99DC1005361BD /* Color.m in Sources */,
 				E6FBD0E426A99C71005361BD /* main.m in Sources */,
