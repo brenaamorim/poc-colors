@@ -12,6 +12,7 @@
 
 -(instancetype) initWithHex:(NSString *)hex;
 -(instancetype) initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+-(instancetype) initWithoutParams;
 
 //+(id)initRGB:(NSString *)rgb;
 
@@ -26,6 +27,7 @@
 -(UIColor *)lighter;
 -(UIColor *)darkerHigh;
 -(UIColor *)lighterHigh;
++(CAGradientLayer *)gradient: (UIColor *)firstColor secondColor:(UIColor *)secondColor;
 @end
 
 

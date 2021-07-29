@@ -12,8 +12,16 @@
 - (instancetype)init {
     self = [self initWithHex:@""];
     self = [self initWithRGB:0 green:0 blue:0];
+    self = [self initWithoutParams];
     return self;
 }
+
+-(instancetype) initWithoutParams {
+    self = [super init];
+
+    return self;
+}
+
 -(instancetype)initWithHex:(NSString *)hex {
     self = [super init];
     if (self) {
@@ -153,6 +161,12 @@
     }
 
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+}
+
++(CAGradientLayer *)gradient: (UIColor *)firstColor secondColor:(UIColor *)secondColor {
+    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
+    theViewGradient.colors = [NSArray arrayWithObjects: (id)firstColor.CGColor, (id)secondColor.CGColor, nil];
+    return theViewGradient;
 }
 
 @end

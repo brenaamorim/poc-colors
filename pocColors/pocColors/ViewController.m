@@ -20,6 +20,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    Color *first = [[Color alloc] initWithHex:@"#0082FF"];
+    Color *second = [[Color alloc] initWithHex:@"#BF43BF"];
+    self.testView = [[UIView alloc] initWithFrame:CGRectMake(10, 200, 200, 40)];
+    self.testView.frame = CGRectMake(10, 200, 200, 40);
+
+//    // Create the gradient
+//    CAGradientLayer *theViewGradient = [Color gradient:first.color secondColor:second.color];
+//    theViewGradient.frame = self.testView.bounds;
+    //Add gradient to view
+
+    self.testView.backgroundColor = [UIColor cyanColor];
+//    [self.testView.layer insertSublayer:theViewGradient atIndex:0];
+    
+
     Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
 
     self.testButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -27,6 +42,11 @@
     
     self.originalButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.originalButton.frame = CGRectMake(10, 100, 200, 40);
+    
+    CAGradientLayer *theViewGradient = [Color gradient:first.color secondColor:second.color];
+    theViewGradient.frame = self.testButton.bounds;
+    [self.testButton.layer insertSublayer:theViewGradient atIndex:0];
+
     
     [self.testButton setBackgroundColor: [color color]];
     [self.testButton addTarget:self action:@selector(changeColor) forControlEvents:UIControlEventTouchUpInside];
@@ -44,10 +64,11 @@
 - (void)changeColor {
     // Color hex converting
 //    Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
-    Color *test = [[Color alloc] initWithRGB:191 green:68 blue:68];
+//    Color *test = [[Color alloc] initWithRGB:191 green:68 blue:68];
+    Color *test2 = [[Color alloc] initWithoutParams];
 
     
-    [self.testButton setBackgroundColor:[test color]];
+    [self.originalButton setBackgroundColor:[test2 randomColor]];
     
     NSLog(@"testButton background color %@", self.testButton.backgroundColor);
 }
