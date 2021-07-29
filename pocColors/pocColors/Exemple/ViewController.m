@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "Color.h"
-#import "FISPerson.h"
 
 
 @interface ViewController ()
@@ -33,7 +32,6 @@
 
     self.testView.backgroundColor = [UIColor cyanColor];
 //    [self.testView.layer insertSublayer:theViewGradient atIndex:0];
-    
 
     Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
 
@@ -55,22 +53,21 @@
     [self.originalButton setBackgroundColor: [color color]];
     [self.originalButton addTarget:self action:@selector(changeColor) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_originalButton];
-//    FISPerson *zachDrossman = [[FISPerson alloc]initWithName:@"Zach Drossman"];
-    NSLog(@"testButton background color %@", self.testButton.backgroundColor);
+    NSLog(@"[DragonFly] testButton background color %@", self.testButton.backgroundColor);
 }
 
 
 
 - (void)changeColor {
-    // Color hex converting
+//    Color hex converting
 //    Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
 //    Color *test = [[Color alloc] initWithRGB:191 green:68 blue:68];
-    Color *test2 = [[Color alloc] initWithoutParams];
 
+//    Color *test2 = [[Color alloc] init];
+
+    [self.originalButton setBackgroundColor:[Color randomColor]];
     
-    [self.originalButton setBackgroundColor:[test2 randomColor]];
-    
-    NSLog(@"testButton background color %@", self.testButton.backgroundColor);
+    NSLog(@"[DragonFly] testButton background color %@", self.testButton.backgroundColor);
 }
 
 @end

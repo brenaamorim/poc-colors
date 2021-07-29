@@ -11,17 +11,14 @@
 @interface Color : UIColor
 
 -(instancetype) initWithHex:(NSString *)hex;
--(instancetype) initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
--(instancetype) initWithoutParams;
-
-//+(id)initRGB:(NSString *)rgb;
+-(instancetype) initWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
 
 @property (strong, nonatomic) NSString *hex;
 @property (nonatomic) NSInteger red;
 @property (nonatomic) NSInteger green;
 @property (nonatomic) NSInteger blue;
 
--(UIColor *)randomColor;
++(UIColor *)randomColor;
 -(UIColor *)color;
 -(UIColor *)darker;
 -(UIColor *)lighter;
