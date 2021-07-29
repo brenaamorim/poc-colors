@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E632C48926B3391500F69B14 /* Font.m in Sources */ = {isa = PBXBuildFile; fileRef = E632C48826B3391500F69B14 /* Font.m */; };
 		E6FBD0D326A99C6D005361BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D226A99C6D005361BD /* AppDelegate.m */; };
 		E6FBD0D626A99C6D005361BD /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D526A99C6D005361BD /* SceneDelegate.m */; };
 		E6FBD0D926A99C6D005361BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FBD0D826A99C6D005361BD /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E632C48726B3391500F69B14 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
+		E632C48826B3391500F69B14 /* Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Font.m; sourceTree = "<group>"; };
 		E6FBD0CE26A99C6D005361BD /* pocColors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocColors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBD0D126A99C6D005361BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E6FBD0D226A99C6D005361BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				E6FBD0E326A99C71005361BD /* main.m */,
 				E6FBD0EA26A99DC1005361BD /* Color.h */,
 				E6FBD0EB26A99DC1005361BD /* Color.m */,
+				E632C48726B3391500F69B14 /* Font.h */,
+				E632C48826B3391500F69B14 /* Font.m */,
 				E6FBD0E226A99C71005361BD /* Info.plist */,
 			);
 			path = pocColors;
@@ -171,6 +176,7 @@
 				E6FBD0D326A99C6D005361BD /* AppDelegate.m in Sources */,
 				E6FBD0EC26A99DC1005361BD /* Color.m in Sources */,
 				E6FBD0E426A99C71005361BD /* main.m in Sources */,
+				E632C48926B3391500F69B14 /* Font.m in Sources */,
 				E6FBD0D626A99C6D005361BD /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
