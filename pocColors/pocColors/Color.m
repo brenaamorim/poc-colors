@@ -78,86 +78,166 @@
     return hexComponent / 255.0;
 }
 
+-(UIColor *) darker: (DarkIntensity)intensity {
+    if (intensity == darker) {
+        NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+        CGFloat alpha, red, blue, green;
+        
+        // Verify if hex format is #RRGGBB
+        alpha = 1.0f;
+        if (([colorString length]) == 6) {
+            red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.9;
+            green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.9;
+            blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.9;
+        } else {
+            red = (_red / 255.0) * 0.9;
+            green = (_green / 255.0) * 0.9;
+            blue = (_blue / 255.0) * 0.9;
+        }
+
+        return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+    } else if (intensity == darkerHigh) {
+        NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+        CGFloat alpha, red, blue, green;
+        
+        // Verify if hex format is #RRGGBB
+        alpha = 1.0f;
+        if (([colorString length]) == 6) {
+            red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.75;
+            green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.75;
+            blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.75;
+        } else {
+            red = (_red / 255.0) * 0.75;
+            green = (_green / 255.0) * 0.75;
+            blue = (_blue / 255.0) * 0.75;
+        }
+
+        return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+    }
+    return [UIColor blackColor];
+}
+
 // MARK: - SET DARK COLOR
--(UIColor *)darker {
-    // Remove # and set hexString to uppercased
-    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
-    CGFloat alpha, red, blue, green;
-    
-    // Verify if hex format is #RRGGBB
-    alpha = 1.0f;
-    if (([colorString length]) == 6) {
-        red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.9;
-        green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.9;
-        blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.9;
-    } else {
-        red = (_red / 255.0) * 0.9;
-        green = (_green / 255.0) * 0.9;
-        blue = (_blue / 255.0) * 0.9;
-    }
+//-(UIColor *)darker {
+//    // Remove # and set hexString to uppercased
+//    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+//    CGFloat alpha, red, blue, green;
+//
+//    // Verify if hex format is #RRGGBB
+//    alpha = 1.0f;
+//    if (([colorString length]) == 6) {
+//        red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.9;
+//        green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.9;
+//        blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.9;
+//    } else {
+//        red = (_red / 255.0) * 0.9;
+//        green = (_green / 255.0) * 0.9;
+//        blue = (_blue / 255.0) * 0.9;
+//    }
+//
+//    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+//}
+//
+//-(UIColor *)darkerHigh {
+//    // Remove # and set hexString to uppercased
+//    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+//    CGFloat alpha, red, blue, green;
+//
+//    // Verify if hex format is #RRGGBB
+//    alpha = 1.0f;
+//    if (([colorString length]) == 6) {
+//        red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.75;
+//        green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.75;
+//        blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.75;
+//    } else {
+//        red = (_red / 255.0) * 0.75;
+//        green = (_green / 255.0) * 0.75;
+//        blue = (_blue / 255.0) * 0.75;
+//    }
+//
+//    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+//}
 
-    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+-(UIColor *) lighter: (LightIntensity)intensity {
+    if (intensity == lighter) {
+        NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+        CGFloat alpha, red, blue, green;
+        
+        // Verify if hex format is #RRGGBB
+        alpha = 0.9f;
+        if (([colorString length]) == 6) {
+            red   = [self colorComponentFrom: colorString start: 0 length: 2];
+            green = [self colorComponentFrom: colorString start: 2 length: 2];
+            blue  = [self colorComponentFrom: colorString start: 4 length: 2];
+        } else {
+            red = _red / 255.0;
+            green = _green / 255.0;
+            blue = _blue / 255.0;
+        }
+
+        return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+    } else if (intensity == lighterHigh) {
+        // Remove # and set hexString to uppercased
+        NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+        CGFloat alpha, red, blue, green;
+        
+        // Verify if hex format is #RRGGBB
+        alpha = 0.75f;
+        if (([colorString length]) == 6) {
+            red   = [self colorComponentFrom: colorString start: 0 length: 2];
+            green = [self colorComponentFrom: colorString start: 2 length: 2];
+            blue  = [self colorComponentFrom: colorString start: 4 length: 2];
+        } else {
+            red = _red / 255.0;
+            green = _green / 255.0;
+            blue = _blue / 255.0;
+        }
+
+        return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+    }
+    
+    return [UIColor blackColor];
 }
 
--(UIColor *)darkerHigh {
-    // Remove # and set hexString to uppercased
-    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
-    CGFloat alpha, red, blue, green;
-    
-    // Verify if hex format is #RRGGBB
-    alpha = 1.0f;
-    if (([colorString length]) == 6) {
-        red   = [self colorComponentFrom: colorString start: 0 length: 2] * 0.75;
-        green = [self colorComponentFrom: colorString start: 2 length: 2] * 0.75;
-        blue  = [self colorComponentFrom: colorString start: 4 length: 2] * 0.75;
-    } else {
-        red = (_red / 255.0) * 0.75;
-        green = (_green / 255.0) * 0.75;
-        blue = (_blue / 255.0) * 0.75;
-    }
-
-    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
-}
-
--(UIColor *)lighter {
-    // Remove # and set hexString to uppercased
-    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
-    CGFloat alpha, red, blue, green;
-    
-    // Verify if hex format is #RRGGBB
-    alpha = 0.9f;
-    if (([colorString length]) == 6) {
-        red   = [self colorComponentFrom: colorString start: 0 length: 2];
-        green = [self colorComponentFrom: colorString start: 2 length: 2];
-        blue  = [self colorComponentFrom: colorString start: 4 length: 2];
-    } else {
-        red = _red / 255.0;
-        green = _green / 255.0;
-        blue = _blue / 255.0;
-    }
-
-    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
-}
-
--(UIColor *)lighterHigh {
-    // Remove # and set hexString to uppercased
-    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
-    CGFloat alpha, red, blue, green;
-    
-    // Verify if hex format is #RRGGBB
-    alpha = 0.75f;
-    if (([colorString length]) == 6) {
-        red   = [self colorComponentFrom: colorString start: 0 length: 2];
-        green = [self colorComponentFrom: colorString start: 2 length: 2];
-        blue  = [self colorComponentFrom: colorString start: 4 length: 2];
-    } else {
-        red = _red / 255.0;
-        green = _green / 255.0;
-        blue = _blue / 255.0;
-    }
-
-    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
-}
+//-(UIColor *)lighter {
+//    // Remove # and set hexString to uppercased
+//    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+//    CGFloat alpha, red, blue, green;
+//
+//    // Verify if hex format is #RRGGBB
+//    alpha = 0.9f;
+//    if (([colorString length]) == 6) {
+//        red   = [self colorComponentFrom: colorString start: 0 length: 2];
+//        green = [self colorComponentFrom: colorString start: 2 length: 2];
+//        blue  = [self colorComponentFrom: colorString start: 4 length: 2];
+//    } else {
+//        red = _red / 255.0;
+//        green = _green / 255.0;
+//        blue = _blue / 255.0;
+//    }
+//
+//    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+//}
+//
+//-(UIColor *)lighterHigh {
+//    // Remove # and set hexString to uppercased
+//    NSString *colorString = [[_hex stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+//    CGFloat alpha, red, blue, green;
+//
+//    // Verify if hex format is #RRGGBB
+//    alpha = 0.75f;
+//    if (([colorString length]) == 6) {
+//        red   = [self colorComponentFrom: colorString start: 0 length: 2];
+//        green = [self colorComponentFrom: colorString start: 2 length: 2];
+//        blue  = [self colorComponentFrom: colorString start: 4 length: 2];
+//    } else {
+//        red = _red / 255.0;
+//        green = _green / 255.0;
+//        blue = _blue / 255.0;
+//    }
+//
+//    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+//}
 
 +(CAGradientLayer *)gradient: (UIColor *)firstColor secondColor:(UIColor *)secondColor {
     CAGradientLayer *theViewGradient = [CAGradientLayer layer];

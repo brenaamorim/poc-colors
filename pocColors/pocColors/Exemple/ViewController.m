@@ -75,12 +75,12 @@
 
 - (void)changeColor {
 //    Color hex converting
-//    Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
+    Color *color = [[Color alloc] initWithHex:@"#FF5B5B"];
 //    Color *test = [[Color alloc] initWithRGB:191 green:68 blue:68];
 
 //    Color *test2 = [[Color alloc] init];
 
-    [self.originalButton setBackgroundColor:[Color randomColor]];
+    [self.originalButton setBackgroundColor:[color lighter:lighter]];
     
     NSLog(@"[DragonFly] testButton background color %@", self.testButton.backgroundColor);
 }

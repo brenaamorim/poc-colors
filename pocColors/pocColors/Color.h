@@ -7,6 +7,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, DarkIntensity) {
+        darker,
+        darkerHigh
+};
+
+typedef NS_ENUM(NSInteger, LightIntensity) {
+        lighter,
+        lighterHigh
+};
+
 
 @interface Color : UIColor
 
@@ -20,10 +30,8 @@
 
 +(UIColor *)randomColor;
 -(UIColor *)color;
--(UIColor *)darker;
--(UIColor *)lighter;
--(UIColor *)darkerHigh;
--(UIColor *)lighterHigh;
+-(UIColor *) darker: (DarkIntensity)intensity;
+-(UIColor *) lighter: (LightIntensity)intensity;
 +(CAGradientLayer *)gradient: (UIColor *)firstColor secondColor:(UIColor *)secondColor;
 @end
 
